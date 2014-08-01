@@ -54,6 +54,14 @@
   .funder:hover .more {
     color: black;
   }
+  .blueText{
+    color:rgb(56, 166, 203);
+    font-weight: bold;
+    font-family: Arial;
+    border-color:transparent;
+    background-color:transparent;
+    float:right;
+  }
 
 :coffeescript
   $(document).ready ->
@@ -82,13 +90,13 @@
 
 %div.navbar.navbar-default
   %div.container-fluid
-    %a.navbar-brand{:href => "/"} Funder IDS
-    %a.btn.btn-default.navbar-btn{href: '/funders.csv'}
-      %span.glyphicon.glyphicon-circle-arrow-down
-      CSV
-    %a.btn.btn-default.navbar-btn{href: '/funders.xls'}
-      %span.glyphicon.glyphicon-circle-arrow-down
-      XLS
+    %a.navbar-brand{:href => "/"} US Federal Funders List
+    %a.btn.btn-default.navbar-btn{href: '/funders.csv', :class=>"blueText"}
+      %span.glyphicon.glyphicon-save
+      DOWNLOAD AS CSV
+    %a.btn.btn-default.navbar-btn{href: '/funders.xls', :class=>"blueText" }
+      %span.glyphicon.glyphicon-save
+      DOWNLOAD AS XLS
 %div.row
   %div.col-md-3
   %div.col-md-6
