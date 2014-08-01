@@ -12,7 +12,7 @@
   .funder {
     margin-top: .3em;
     margin-buttom: .3em;
-    font-size: 12px_
+    font-size: 12px;
   }
   .link:hover{
     text-decoration: underline;
@@ -55,25 +55,30 @@
     color: black;
   }
 
-:javascript
-  $(document).ready(function() {
-    $(".funder[parent_id='0']" ).show();
+:coffeescript
+  $(document).ready ->
+    $(".funder[parent_id='0']").show()
 
-    $( ".funder" ).on("click", function() {
+    $(".funder").on "click", ->
       that = $(this)
-      level = parseInt(that.attr("level"));
-      id =  that.attr("funder_id");
+      level = parseInt(that.attr("level"))
+      id = that.attr("funder_id")
+      more = that.find(".more")
 
-      if(parseInt(that.nextAll(':visible').first().attr('level'))<=level){ // Show
-        console.log("SHOW");
-        $(".funder[parent_id="+id+"]").show();
-      }else{ //hide
-        console.log("HIDE");
-        that.nextUntil(".funder[level="+level+"]").hide();
-      }
+      level_smaller = parseInt(that.nextAll(":visible").first().attr("level")) <= level
+      last_element = that.nextAll(':visible').length == 0
 
-    });
-  });
+      if level_smaller || last_element # Show
+        $(".funder[parent_id=" + id + "]").show()
+        more.removeClass("glyphicon-plus").addClass "glyphicon-minus"
+      else #hide
+        more.removeClass("glyphicon-minus").addClass "glyphicon-plus"
+        next_siblings = that.nextUntil(".funder[level=" + level + "]")
+        next_siblings.hide()
+        $.each next_siblings, (i, el) ->
+          more = $(el).find(".more")
+          more.removeClass("glyphicon-minus").addClass "glyphicon-plus"
+
 
 %div.navbar.navbar-default
   %div.container-fluid
