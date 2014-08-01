@@ -4,6 +4,7 @@ How to deploy:
 * ssh .......
 * cd .......
 * sudo git pull
+* bundle
 * sudo rm pids/unicorn.pid
 * ps aux | grep 'unicorn master'
 * sudo kill -QUIT [master pid] && sudo unicorn -c unicorn.rb -D
