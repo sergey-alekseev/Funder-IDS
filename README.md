@@ -76,6 +76,6 @@ rbenv install 2.1.1
 sudo mkdir /var/www
 sudo chown -R vagrant /var/www
 cd /var/www
-git clone https://github.com/OrelSokolov/funders_ids
+git clone https://github.com/sergey-alekseev/Funder-IDS
 
 ```
