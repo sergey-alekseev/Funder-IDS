@@ -21,7 +21,7 @@ module Funders
   end
 
   def get_funder_and_its_descendants(funder_id, children_storage, level, parent_id=0)
-    uri = URI("http://148.251.10.165:3001/v1/funders/10.13039/#{funder_id}")
+    uri = URI("http://api.crossref.org/v1/funders/10.13039/#{funder_id}")
     response = JSON.parse(Net::HTTP.get(uri))
 
     funder =  new_funder( id: funder_id,
