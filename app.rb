@@ -28,7 +28,8 @@ helpers do
     if session[:ids].find(criteria).count > 0
       funders = session[:ids].find(criteria).first.to_hash[:funders]
     else
-      funders = session[:ids].find().first.to_hash[:funders] # For time range since 0.00am to 2.00am
+      # TODO: need to clarify with Oleg
+      funders = session[:ids].find().sort(_id: -1).first.to_hash[:funders] # For time range since 0.00am to 2.00am
     end
   end
 end
